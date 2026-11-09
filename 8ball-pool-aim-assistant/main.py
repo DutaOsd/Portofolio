@@ -153,17 +153,11 @@ def main() -> int:
 
             overlay.update(frame, detections, prediction)
 
-            # Allow quit with 'q' (OpenCV waitKey on a dummy window is not used;
-            # tkinter handles close). We also check a tiny OpenCV wait so
-            # 'q' in any cv2 window quits, but here tkinter is primary.
-            if cv2.waitKey(delay_ms) & 0xFF == ord("q"):
-                break
     except KeyboardInterrupt:
         pass
     finally:
         overlay.stop()
         capture.close()
-        cv2.destroyAllWindows()
 
     return 0
 

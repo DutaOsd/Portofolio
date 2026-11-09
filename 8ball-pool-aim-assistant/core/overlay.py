@@ -54,6 +54,8 @@ class _TkOverlay:
         self._photo = None
         self._running = True
         self.root.protocol("WM_DELETE_WINDOW", self.stop)
+        self.root.bind("q", lambda e: self.stop())
+        self.root.bind("Q", lambda e: self.stop())
 
     def set_status(self, text):
         self.status_var.set(text)
